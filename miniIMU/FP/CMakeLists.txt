@@ -1,0 +1,6 @@
+target_sources( ${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/FP_Matrix.c)
+target_sources( ${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/FP_miniIMU.c)
+target_sources( ${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/FP_Math.c)
+
+
+
