@@ -24,19 +24,20 @@ target_include_directories ( ${PROJECT_NAME} PUBLIC include Libraries/CMSIS/Devi
 target_include_directories ( ${PROJECT_NAME} PUBLIC include Project/RTE )
 target_include_directories ( ${PROJECT_NAME} PUBLIC include Application/inc )
 
-add_subdirectory(Application/src)
+
 add_subdirectory(Libraries/STM32F4xx_StdPeriph_Driver/src)
 add_subdirectory(Libraries/eMPL)
-add_subdirectory(Algorithm/src)
-add_subdirectory(Matrix/src)
 add_subdirectory(Drivers/src)
+add_subdirectory(Data/src)
+add_subdirectory(Gps/src)
+add_subdirectory(Application/src)
+add_subdirectory(Matrix/src)
 add_subdirectory(Math/src)
 add_subdirectory(miniIMU)
 add_subdirectory(miniIMU/FP)
 add_subdirectory(miniAHRS)
-add_subdirectory(Data/src)
-add_subdirectory(Gps/src)
 add_subdirectory(Common/src)
+
 
 
 add_definitions( -DUSE_STDPERIPH_DRIVER)
