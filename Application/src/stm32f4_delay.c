@@ -42,7 +42,7 @@ void Delay_Init()
 	DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
 	//Reset counter
 	DWT->CYCCNT = 0u;
-	
+
 	if(SysTick_Config(RCC_Clocks.HCLK_Frequency / 1000u)){
 		while (1); // Handle Error
 	}
@@ -56,7 +56,7 @@ __inline uint32_t Millis(void)
 u32 Micros(void)
 {
 	register uint32_t old_cycle, cycle, timeMs;
-	
+
 	do{
 		timeMs = __LDREXW(&uptime_ticks);
 		cycle = DWT->CYCCNT;
@@ -79,12 +79,12 @@ void Delay_Us(u32 us)
 	uint32_t elapsed_us = 0;
 	uint32_t lastCount = DWT->CYCCNT;
 	register uint32_t current_count = DWT->CYCCNT;
-	
+
 	for (;;) {
 		current_count = DWT->CYCCNT;
 		elapsed += current_count - lastCount;
 		lastCount = current_count;
-		
+
 		elapsed_us = elapsed / us_ticks;
 		if (elapsed_us >= us){
 			break;

@@ -41,7 +41,7 @@ octcopy
 copywords
 	movs r3, r2, asr #2        ;any more whole words to move?
 	beq     copybytes        ;jump if no more whole words
-	
+
 	stmdb sp!, {lr}    	;push return address
 wordcopy
 	ldr lr, [r1], #4  	;read next word from src
@@ -49,11 +49,11 @@ wordcopy
 	subs r3, r3, #1    	;decrement word count
 	bne wordcopy   	;loop while more words to move
 	ldmia sp!, {lr}    	;pop return address
-	
+
 copybytes
 	ands r2, r2, #3    	;any last bytes to transfer?
 	beq done    	;return if already done
-	
+
 bytecopy
 	ldrb r3, [r1], #1  	;read byte from src
 	strb r3, [r0], #1  	;write byte to dest
@@ -104,7 +104,7 @@ WordAligned
 
 	and r2, r2, #0x1f 	;subtract chunks from size
 	stmdb sp!, {r4-r10} 	;save registers on stack
-	
+
 	;The strings are long enough that we can transfer at least
 	;some portion of the data in 8-word chunks.
 
@@ -202,10 +202,10 @@ __asm s32 MemCmp(u8 *dest, u8 *src, u16 n)
 	sub      r0,r3,r1          ;p1 - p2
 	ands     r0,r0,#3          ;(p1 - p2) & 3
 	beq      WordCompare       ;jump if byte offsets match
-	
+
 	;The strings begin at different byte offsets WRT word boundaries.
 	;Loop below processes only a single pair of bytes per iteration.
- 
+
 ByteLoop
 	ldrb     r0,[r3],#1        ;b1 = next byte from string 1
 	ldrb     r4,[r1],#1        ;b2 = next byte from string 2

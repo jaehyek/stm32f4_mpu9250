@@ -6,7 +6,7 @@ ADD_EXECUTABLE( ${PROJECT_NAME} config.c)
 target_sources( ${PROJECT_NAME} PUBLIC Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm/startup_stm32f401xx.s)
 
 
-target_include_directories ( ${PROJECT_NAME} PUBLIC include Application/inc )
+
 target_include_directories ( ${PROJECT_NAME} PUBLIC include Libraries/STM32F4xx_StdPeriph_Driver/inc )
 target_include_directories ( ${PROJECT_NAME} PUBLIC include Libraries/eMPL)
 target_include_directories ( ${PROJECT_NAME} PUBLIC include Algorithm/inc )
@@ -22,7 +22,7 @@ target_include_directories ( ${PROJECT_NAME} PUBLIC include Common/inc )
 target_include_directories ( ${PROJECT_NAME} PUBLIC include Libraries/CMSIS/Include )
 target_include_directories ( ${PROJECT_NAME} PUBLIC include Libraries/CMSIS/Device/ST/STM32F4xx/Include )
 target_include_directories ( ${PROJECT_NAME} PUBLIC include Project/RTE )
-
+target_include_directories ( ${PROJECT_NAME} PUBLIC include Application/inc )
 
 add_subdirectory(Application/src)
 add_subdirectory(Libraries/STM32F4xx_StdPeriph_Driver/src)

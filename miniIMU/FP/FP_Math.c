@@ -96,7 +96,7 @@ inner_loop
 	adds r0, r0, r0; //start: num = mod:num / den
 	adcs r2, r1, r2, lsl #1;
 	subcc r2, r2, r1;
-	adc r4, r4, r4;	
+	adc r4, r4, r4;
 	subs r3, r3, #1;
 	bne inner_loop
 
